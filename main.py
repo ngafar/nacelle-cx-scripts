@@ -3,6 +3,7 @@ import sys
 import json
 import hashlib
 import nacelle 
+import datetime
 from tqdm import tqdm
 
 selected_option = sys.argv[1].lower()
@@ -74,8 +75,10 @@ for row in tqdm(prods_list):
 # Save CSV
 # --------------------------------------
 
-print('Step 3: Saving to output.csv')
+print('Step 3: Saving to CSV')
 
-with open('./data/output.csv', 'w') as f:
+current_date = datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S')
+
+with open(f'./data/output_{current_date}_{selected_option}.csv', 'w') as f:
     writer = csv.writer(f)
     writer.writerows(prods_list)
