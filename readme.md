@@ -14,15 +14,15 @@ After cloning this repo, install dependencies:
 pip install -r requirements.txt
 ```
 
-Next ensure you have a `data/` dir, with a `spaces.csv` file. This CSV file should only have two columns: the first containing a Space ID, and the second column, being the space's storefront token. Additionally, this CSV file should not contain column headers. 
+Next, ensure you have a `data/` dir, with a `spaces.csv` file. This CSV file should only have two columns: the first containing a Space ID, and the second column, being the space's storefront token. Additionally, this CSV file should not contain column headers. 
 
-## Useage
+## Usage
 
 When running `main.py` the program expects either a "p" or a "c." This argument determines if a program looks for orphaned products, or collections. 
 
 For example:
 
-```
+```python
 python main.py p # Looks for orphaned products
 python main.py c # Looks for orphaned collections
 ```
