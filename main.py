@@ -5,10 +5,7 @@ import hashlib
 import nacelle 
 from tqdm import tqdm
 
-print(sys.argv)
-
-selected_option = input('Scan products or collections (P/C): ')
-selected_option = selected_option.lower()
+selected_option = sys.argv[1].lower()
 
 if (selected_option != 'p') and (selected_option != 'c'):
     print("Invalid selection")
