@@ -18,7 +18,7 @@ Next, ensure you have a `data/` dir, with a `spaces.csv` file. This CSV file sho
 
 ## Usage
 
-When running `main.py`, the program expects either a "p" or a "c." This argument determines if products or collection data is pulled. 
+When running `main.py`, the program expects either a "p" or a "c." This argument determines if product or collection data is pulled. 
 
 For example:
 
