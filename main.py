@@ -5,6 +5,8 @@ import hashlib
 import nacelle 
 from tqdm import tqdm
 
+print(sys.argv)
+
 selected_option = input('Scan products or collections (P/C): ')
 selected_option = selected_option.lower()
 
@@ -43,21 +45,19 @@ print('Step 2: Getting API response for each product')
 
 n = 0
 for row in tqdm(prods_list):
-    # nacelle entry id
+    # get json data from nacelle:
     if selected_option == 'p':
         entry_id_result = nacelle.get_prod_by_id(space_id=row[0], token=row[1], entry_id=row[2])
+        handle_result = nacelle.get_prod_by_handle(space_id=row[0], token=row[1], handle=row[3])
     else:
         entry_id_result = nacelle.get_collection_by_id(space_id=row[0], token=row[1], entry_id=row[2])
-
+        handle_result = nacelle.get_collection_by_handle(space_id=row[0], token=row[1], handle=row[3])
+    
+    # hash nacelle entry id:
     entry_id_json = json.dumps(entry_id_result)
     entry_id_hash = hashlib.md5(entry_id_json.encode("utf-8")).hexdigest()
 
-    # handle
-    if selected_option == 'p':
-        handle_result = nacelle.get_prod_by_handle(space_id=row[0], token=row[1], handle=row[3])
-    else:
-        handle_result = nacelle.get_collection_by_handle(space_id=row[0], token=row[1], handle=row[3])
-
+    # hash handle:
     handle_json = json.dumps(handle_result)
     handle_hash = hashlib.md5(handle_json.encode("utf-8")).hexdigest()
 
