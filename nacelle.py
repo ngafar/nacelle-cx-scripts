@@ -263,8 +263,8 @@ def get_collection_by_id(space_id, token, entry_id):
                             handle
                         }
                         productConnection {
-					        totalCount
-				        }
+                            totalCount
+                        }
                     }
                 }
             }
@@ -299,8 +299,8 @@ def get_collection_by_handle(space_id, token, handle):
                             handle
                         }
                         productConnection {
-					        totalCount
-				        }
+                            totalCount
+                        }
                     }
                 }
             }
