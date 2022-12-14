@@ -18,5 +18,7 @@ Each script has its own specific instruction to get setup, be sure to read the r
 
 ### collection-prod-order
 
+Checks to see if the the order of products in a Nacelle collection matches the order of the products in Shopify.
+
 ### orphan-data
 
