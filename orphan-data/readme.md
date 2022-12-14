@@ -14,7 +14,7 @@ After cloning this repo, install dependencies:
 pip install -r requirements.txt
 ```
 
-Next, a `details.csv` file in this dir (`orphan-data/`). This CSV file should only have two columns: the first containing a Space ID, and the second column, being the space's storefront token. Additionally, this CSV file should not contain column headers. 
+Next, create a file named `details.csv` in this dir (`orphan-data/`). This CSV file should only have two columns: the first containing a Space ID, and the second column, being the space's storefront token. This CSV file should not contain column headers. 
 
 ## Usage
 
