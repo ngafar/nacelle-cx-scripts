@@ -1,7 +1,8 @@
 # Project specific
 .DS_Store
-**/details.csv
 **/.env
+**/out.csv
+**/details.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

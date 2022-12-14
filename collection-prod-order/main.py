@@ -1,4 +1,5 @@
 import os
+import csv
 import sys
 import shopify
 import nacelle
@@ -19,9 +20,17 @@ except:
     # Otherwise, get every handle.
     collections = nacelle.get_all_collections(NACELLE_SPACE_ID, NACELLE_TOKEN)
 
+results = []
+
 for collection_handle in collections:
     shopify_prod_list = shopify.get_collection_prods(SHOPIFY_DOMAIN, SHOPIFY_TOKEN, collection_handle)
     nacelle_prod_list = nacelle.get_collection_prods(NACELLE_SPACE_ID, NACELLE_TOKEN, collection_handle)
 
     match = shopify_prod_list == nacelle_prod_list
+    results.append([collection_handle, match])
+    
     print(f'{collection_handle} | {match}')
+
+with open("./collection-prod-order/out.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(results)
