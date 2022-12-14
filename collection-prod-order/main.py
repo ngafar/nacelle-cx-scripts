@@ -16,14 +16,12 @@ try:
     handle = sys.argv[1].lower()
     collections = [handle]
 except:
-    # Otherwise, get evvery handle.
+    # Otherwise, get every handle.
     collections = nacelle.get_all_collections(NACELLE_SPACE_ID, NACELLE_TOKEN)
-
-#collection_handle = 'shorts'
 
 for collection_handle in collections:
     shopify_prod_list = shopify.get_collection_prods(SHOPIFY_DOMAIN, SHOPIFY_TOKEN, collection_handle)
     nacelle_prod_list = nacelle.get_collection_prods(NACELLE_SPACE_ID, NACELLE_TOKEN, collection_handle)
 
     match = shopify_prod_list == nacelle_prod_list
-    print(collection_handle, match)
+    print(f'{collection_handle} | {match}')
