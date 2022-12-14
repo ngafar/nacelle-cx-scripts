@@ -1,4 +1,5 @@
 import os
+import sys
 import shopify
 import nacelle
 from dotenv import load_dotenv
@@ -10,10 +11,19 @@ SHOPIFY_TOKEN = os.getenv("SHOPIFY_TOKEN")
 NACELLE_SPACE_ID = os.getenv("NACELLE_SPACE_ID")
 NACELLE_TOKEN = os.getenv("NACELLE_TOKEN")
 
-collection_handle = 'shorts'
+try:
+    # If the user enters a handle.
+    handle = sys.argv[1].lower()
+    collections = [handle]
+except:
+    # Otherwise, get evvery handle.
+    collections = nacelle.get_all_collections(NACELLE_SPACE_ID, NACELLE_TOKEN)
 
-shopify_prod_list = shopify.get_collection_prods(SHOPIFY_DOMAIN, SHOPIFY_TOKEN, collection_handle)
-nacelle_prod_list = nacelle.get_collection_prods(NACELLE_SPACE_ID, NACELLE_TOKEN, collection_handle)
+#collection_handle = 'shorts'
 
-match = shopify_prod_list == nacelle_prod_list
-print(match)
+for collection_handle in collections:
+    shopify_prod_list = shopify.get_collection_prods(SHOPIFY_DOMAIN, SHOPIFY_TOKEN, collection_handle)
+    nacelle_prod_list = nacelle.get_collection_prods(NACELLE_SPACE_ID, NACELLE_TOKEN, collection_handle)
+
+    match = shopify_prod_list == nacelle_prod_list
+    print(collection_handle, match)
