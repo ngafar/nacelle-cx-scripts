@@ -22,3 +22,5 @@ When running `main.py`, you have two options:
 2. Not specifying any handle.
 
 If you're specifying a handle your command should look like this `python main.py holidays`. In this example, the *holidays* collection will be audited. If no handle is provided, the script will get a list of all collections from Nacelle, and check each of them. 
+
+When the script is completed, a `out.csv` file will be created in this directory. The second column of the CSV will either be True or False. A True observance signifies that the order in both Shopify and Nacelle match. Ideally you want every item in column two to be True. 
