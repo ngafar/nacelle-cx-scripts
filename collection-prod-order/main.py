@@ -1,9 +1,8 @@
 import os
 import csv
 import sys
-import shopify
-import nacelle
 from dotenv import load_dotenv
+from endpoints import nacelle, shopify
 
 load_dotenv() 
 
