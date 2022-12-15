@@ -13,11 +13,11 @@ NACELLE_SPACE_ID = os.getenv("NACELLE_SPACE_ID")
 NACELLE_TOKEN = os.getenv("NACELLE_TOKEN")
 
 try:
-    # If the user enters a handle.
+    # If user entered a handle:
     handle = sys.argv[1].lower()
     collections = [handle]
 except:
-    # Otherwise, get every handle.
+    # Otherwise, get every handle:
     collections = nacelle.get_all_collections(NACELLE_SPACE_ID, NACELLE_TOKEN)
 
 results = []
