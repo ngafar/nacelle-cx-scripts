@@ -30,6 +30,6 @@ for collection_handle in collections:
     
     print(f'{collection_handle} | {match}')
 
-with open("./collection-prod-order/out.csv", "w", newline="") as f:
+with open("out.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(results)
